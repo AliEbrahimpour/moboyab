@@ -48,7 +48,10 @@
 <body style="font-family: IRANSans;" class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
 <header class="app-header navbar">
     <button class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto" type="button">☰</button>
-    <a class="navbar-brand" href="#"></a>
+    <a class="navbar-brand" href="#">
+        <img class="navbar-brand-full" src="<?= Url('img/logo.png') ?>" alt="CoreUI Logo" width="89" height="25">
+    </a>
+
     <button class="navbar-toggler sidebar-minimizer d-md-down-none" type="button">☰</button>
 
     <ul class="nav navbar-nav d-md-down-none">
@@ -93,7 +96,7 @@
                 <a class="dropdown-item" href="#"><i class="fa fa-file"></i> پروژه ها<span class="badge badge-primary">42</span></a>
                 <div class="divider"></div>
                 <a class="dropdown-item" href="#"><i class="fa fa-shield"></i> قفل کردن حساب کاربری</a>
-                {{--<a class="dropdown-item" href="{{ route('logout') }}"--}}
+                <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
                 <i class="fa fa-lock"></i> خروج

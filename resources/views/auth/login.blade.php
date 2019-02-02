@@ -1,73 +1,96 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en" >
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+<head>
+    <meta charset="UTF-8">
+    <title>صفحه لاگین و ثبت نام</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300, 400, 500" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+    <link rel="stylesheet" href="css/login.css">
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+</head>
+
+<body>
+
+<!--
+webSite : ProjeYaab.ir | سورس کد - پروژه - قالب
+-->
+
+<section class="user">
+    <div class="user_options-container">
+        <div class="user_options-text">
+            <div class="user_options-unregistered">
+                <h2 class="user_unregistered-title">حساب ندارید ؟</h2>
+                <p class="user_unregistered-text">
+                    با ثبت نام در سایت از مزایای زیادی بهره مند شوید.
+                </p>
+                <button class="user_unregistered-signup" id="signup-button">
+                    نام نویسی
+                </button>
+            </div>
+
+            <div class="user_options-registered">
+                <h2 class="user_registered-title">حساب دارید؟</h2>
+                <p class="user_registered-text">
+                    وارد حساب خود شوید و از مزایای سایت استفاده کنید.
+                </p>
+                <button class="user_registered-login" id="login-button">ورود</button>
+            </div>
+        </div>
+
+        <div class="user_options-forms" id="user_options-forms">
+            <div class="user_forms-login">
+                <h2 class="forms_title">ورود</h2>
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
+                    <fieldset class="forms_fieldset">
+                        <div class="forms_field">
+                            <input type="email" placeholder="ایمیل" class="forms_field-input" required autofocus />
                         </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                        <div class="forms_field">
+                            <input type="password" placeholder="Password" class="forms_field-input" required />
                         </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
+                    </fieldset>
+                    <div class="forms_buttons">
+                        <button type="button" class="forms_buttons-forgot">فراموشی رمز</button>
+                        <input type="submit" value="ورود" class="forms_buttons-action">
+                    </div>
+                </form>
+            </div>
+            <div class="user_forms-signup">
+                <h2 class="forms_title">عضویت</h2>
+                <form method="POST" action="{{ route('register') }}">
+                    @csrf
+                    <fieldset class="forms_fieldset">
+                        <div class="forms_field">
+                            <input type="text" placeholder="Full Name" class="forms_field-input" required />
                         </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
+                        <div class="forms_field">
+                            <input type="email" placeholder="Email" class="forms_field-input" required />
                         </div>
-                    </form>
-                </div>
+                        <div class="forms_field">
+                            <input type="password" placeholder="Password" class="forms_field-input" required />
+                        </div>
+                    </fieldset>
+                    <div class="forms_buttons">
+                        <input type="submit" value="ارسال" class="forms_buttons-action">
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-</div>
-@endsection
+</section>
+
+
+
+<script  src="js/login.js"></script>
+
+
+
+
+</body>
+
+</html>
