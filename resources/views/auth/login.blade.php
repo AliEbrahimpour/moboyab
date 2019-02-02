@@ -44,14 +44,15 @@ webSite : ProjeYaab.ir | سورس کد - پروژه - قالب
         <div class="user_options-forms" id="user_options-forms">
             <div class="user_forms-login">
                 <h2 class="forms_title">ورود</h2>
-                <form method="POST" action="{{ route('login') }}">
+                <form style="direction: rtl" method="POST" action="{{ route('login') }}">
                     @csrf
+                    @include('layouts.errors')
                     <fieldset class="forms_fieldset">
                         <div class="forms_field">
-                            <input type="email" placeholder="ایمیل" class="forms_field-input" required autofocus />
+                            <input name="email" type="email" placeholder="ایمیل" class="forms_field-input" required autofocus />
                         </div>
                         <div class="forms_field">
-                            <input type="password" placeholder="Password" class="forms_field-input" required />
+                            <input name="password" type="password" placeholder="پسورد" class="forms_field-input" required />
                         </div>
                     </fieldset>
                     <div class="forms_buttons">
@@ -62,17 +63,21 @@ webSite : ProjeYaab.ir | سورس کد - پروژه - قالب
             </div>
             <div class="user_forms-signup">
                 <h2 class="forms_title">عضویت</h2>
-                <form method="POST" action="{{ route('register') }}">
+                <form style="direction: rtl" method="POST" action="{{ route('register') }}">
                     @csrf
+                    @include('layouts.errors')
                     <fieldset class="forms_fieldset">
                         <div class="forms_field">
-                            <input type="text" placeholder="Full Name" class="forms_field-input" required />
+                            <input name="name"  type="text" placeholder="نام" class="forms_field-input" required />
                         </div>
                         <div class="forms_field">
-                            <input type="email" placeholder="Email" class="forms_field-input" required />
+                            <input name="email" type="email" placeholder="ایمیل" class="forms_field-input" required />
                         </div>
                         <div class="forms_field">
-                            <input type="password" placeholder="Password" class="forms_field-input" required />
+                            <input name="password" type="password" placeholder="پسورد" class="forms_field-input" required />
+                        </div>
+                        <div class="forms_field">
+                            <input name="password_confirmation" type="password" placeholder="تکرار پسورد" class="forms_field-input" required />
                         </div>
                     </fieldset>
                     <div class="forms_buttons">
