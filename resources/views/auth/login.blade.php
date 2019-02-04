@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="fa" >
 
 <head>
     <meta charset="UTF-8">
     <title>صفحه لاگین و ثبت نام</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300, 400, 500" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-
-
     <link rel="stylesheet" href="css/login.css">
 
 
@@ -15,9 +13,7 @@
 
 <body>
 
-<!--
-webSite : ProjeYaab.ir | سورس کد - پروژه - قالب
--->
+
 
 <section class="user">
     <div class="user_options-container">

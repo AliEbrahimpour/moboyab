@@ -74,7 +74,7 @@
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                {{--<span class="d-md-down-none">سلام {{ Auth::user()->name }}</span>--}}
+                <span class="d-md-down-none">سلام {{ Auth::user()->name }}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-header text-center">
@@ -93,15 +93,15 @@
                 <a class="dropdown-item" href="#"><i class="fa fa-file"></i> پروژه ها<span class="badge badge-primary">42</span></a>
                 <div class="divider"></div>
                 <a class="dropdown-item" href="#"><i class="fa fa-shield"></i> قفل کردن حساب کاربری</a>
-                {{--<a class="dropdown-item" href="{{ route('logout') }}"--}}
+                <a class="dropdown-item" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                     <i class="fa fa-lock"></i> خروج
                 </a>
 
-                {{--<form id="logout-form" action="{{ route('logout') }}" method="POST">--}}
-                    {{--@csrf--}}
-                {{--</form>--}}
+                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                    @csrf
+                </form>
             </div>
         </li>
     </ul>

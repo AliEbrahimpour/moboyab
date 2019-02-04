@@ -102,9 +102,9 @@
                 <i class="fa fa-lock"></i> خروج
                 </a>
 
-                {{--<form id="logout-form" action="{{ route('logout') }}" method="POST">--}}
-                {{--@csrf--}}
-                {{--</form>--}}
+                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                @csrf
+                </form>
             </div>
         </li>
     </ul>
