@@ -1,4 +1,5 @@
 
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>--}}
 <!DOCTYPE html>
 <html lang="fa"  dir="rtl">
 <head>
@@ -8,7 +9,8 @@
     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,AngularJS,Angular,Angular2,Angular 2,Angular4,Angular 4,jQuery,CSS,HTML,RWD,Dashboard,React,React.js,Vue,Vue.js">
-    <link rel="shortcut icon" href="img/favicon.png">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{--<link rel="shortcut icon" href="img/favicon.png">--}}
     <title>CoreUI - Admin Template - rtl Theme</title>
 
     <!-- Icons -->
@@ -74,7 +76,7 @@
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                <span class="d-md-down-none">سلام {{ Auth::user()->name }}</span>
+                <span class="d-md-down-none">سلام {{ Auth::user()->firstname }}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-header text-center">
@@ -113,7 +115,7 @@
         <nav class="sidebar-nav">
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html"><i class="icon-speedometer"></i> میزکار <span class="badge badge-primary">جدید</span></a>
+                    <a class="nav-link" href="/user/panel"><i class="icon-speedometer"></i> میزکار <span class="badge badge-primary">جدید</span></a>
                 </li>
 
 
@@ -148,13 +150,14 @@
 </footer>
 
 <!-- Bootstrap and necessary plugins -->
+<script src="<?= url('js/app.js') ?>"></script>
 <script src="<?= url('js/jquery.min.js') ?>"></script>
 <script src="<?= url('js/popper.min.js') ?>"></script>
 <script src="<?= url('js/bootstrap.min.js') ?>"></script>
 <script src="<?= url('js/panel/pace.js') ?>"></script>
 <script src="<?= url('js/panel/app.js') ?>"></script>
 <script src="<?= url('js/panel/main.js') ?>"></script>
-<script src="<?= url('js/panel/chart.js') ?>"></script>
+<script src="<?= url('js/Chart.min.js') ?>"></script>
 
 </body>
 

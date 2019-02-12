@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateActionsTable extends Migration
+class CreateInvitesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateActionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('actions', function (Blueprint $table) {
+        Schema::create('invites', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->default(0);
-            $table->text('comment')->nullable();
-            $table->string('code',3)->default(0);
-            $table->enum('status',['available','expired','soon'])->nullable();
+            $table->integer('caller_id')->unsigned()->index();
+            $table->foreign('caller_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('invited_id')->unsigned()->index();
+            $table->foreign('invited_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamp('deleted_at')->nullable();
+
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateActionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('actions');
+        Schema::dropIfExists('invites');
     }
 }

@@ -240,8 +240,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <button  type="submit" class="btn btn-sm btn-success"><i class="fa fa-dot-circle-o"></i> ارسال</button>
-                            <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> بازیابی</button>
+                            <button  type="submit" class="btn btn-outline-success"><i class="fa fa-dot-circle-o"></i> ارسال</button>
+                            <button type="reset" class="btn  btn-outline-danger"><i class="fa fa-ban"></i> بازیابی</button>
 
                             <div class="form-actions">
                             </div>

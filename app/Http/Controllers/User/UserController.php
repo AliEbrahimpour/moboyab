@@ -23,12 +23,12 @@ class UserController extends Controller
     public function active(){
         return view('User.active');
     }
-    public function setevent(Request $request){
-        $record=  new Event($request->all());
-        $record->user_id = Auth::user()->id;
-        $record->save();
-        return redirect()->back();
-    }
+//    public function setevent(Request $request){
+//        $record=  new Event($request->all());
+//        $record->user_id = Auth::user()->id;
+//        $record->save();
+//        return redirect()->back();
+//    }
 
     public function setincome(){
 

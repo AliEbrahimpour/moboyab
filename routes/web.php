@@ -20,7 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/vtoken', 'HomeController@verify')->name('vtoken');
 
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin' ,'middleware' => ['auth:web' , 'checkAdmin']], function () {
     Route::get('panel', 'AdminController@index');
 
     Route::get('panel/checkout', 'AdminController@checkout');
@@ -40,7 +40,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
 });
 
-Route::group(['namespace' => 'User', 'prefix' => 'user'], function () {
+Route::group(['namespace' => 'User', 'prefix' => 'user','middleware' => ['auth:web'] ], function () {
     Route::get('panel', 'UserController@index');
 
     Route::get('panel/control', 'UserController@control');

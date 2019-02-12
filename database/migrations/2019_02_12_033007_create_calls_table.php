@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateActionsTable extends Migration
+class CreateCallsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateActionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('actions', function (Blueprint $table) {
+        Schema::create('calls', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->default(0);
-            $table->text('comment')->nullable();
-            $table->string('code',3)->default(0);
-            $table->enum('status',['available','expired','soon'])->nullable();
+            $table->integer('user_id')->unsigned()->index();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->boolean('call_type')->nullable();
+            $table->string('number')->nullable();
+            $table->string('date')->nullable();
+            $table->string('device_id')->nullable();
             $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
@@ -31,6 +33,6 @@ class CreateActionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('actions');
+        Schema::dropIfExists('calls');
     }
 }

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fa"  dir="rtl">
 <head>
@@ -8,7 +7,8 @@
     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,AngularJS,Angular,Angular2,Angular 2,Angular4,Angular 4,jQuery,CSS,HTML,RWD,Dashboard,React,React.js,Vue,Vue.js">
-    <link rel="shortcut icon" href="img/favicon.png">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{--<link rel="shortcut icon" href="img/favicon.png">--}}
     <title>CoreUI - Admin Template - rtl Theme</title>
 
     <!-- Icons -->
@@ -49,7 +49,7 @@
 <header class="app-header navbar">
     <button class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto" type="button">☰</button>
     <a class="navbar-brand" href="#">
-        <img class="navbar-brand-full" src="<?= Url('img/logo.png') ?>" alt="CoreUI Logo" width="89" height="25">
+
     </a>
 
     <button class="navbar-toggler sidebar-minimizer d-md-down-none" type="button">☰</button>
@@ -152,8 +152,8 @@
 <script src="<?= url('js/bootstrap.min.js') ?>"></script>
 <script src="<?= url('js/panel/pace.js') ?>"></script>
 <script src="<?= url('js/panel/app.js') ?>"></script>
+<script src="<?= url('js/Chart.min.js') ?>"></script>
 <script src="<?= url('js/panel/main.js') ?>"></script>
-<script src="<?= url('js/panel/chart.js') ?>"></script>
 
 @yield('script')
 

@@ -19,7 +19,8 @@
             </li>
         </ol>
 
-
+    <div id="app">
+        <example-component></example-component>
         <div class="container-fluid">
 
             <div class="animated fadeIn">
@@ -190,6 +191,7 @@
 
 
         </div>
+    </div>
         <!-- /.conainer-fluid -->
     </main>
 @endsection

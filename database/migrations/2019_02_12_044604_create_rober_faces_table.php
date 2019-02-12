@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateActionsTable extends Migration
+class CreateRoberFacesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateActionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('actions', function (Blueprint $table) {
+        Schema::create('rober_faces', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->default(0);
-            $table->text('comment')->nullable();
-            $table->string('code',3)->default(0);
-            $table->enum('status',['available','expired','soon'])->nullable();
-            $table->timestamp('deleted_at')->nullable();
+            $table->integer('user_id')->unsigned()->index();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('img_src');
+
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateActionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('actions');
+        Schema::dropIfExists('rober_faces');
     }
 }

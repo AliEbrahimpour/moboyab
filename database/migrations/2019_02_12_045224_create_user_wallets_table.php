@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserPaysTable extends Migration
+class CreateUserWalletsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,17 @@ class CreateUserPaysTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_pays', function (Blueprint $table) {
+        Schema::create('user_wallets', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('ref_id');
-            $table->string('trans_id');
-            $table->integer('app_id')->unsigned()->index();
-            $table->foreign('app_id')->references('id')->on('apps')->onDelete('cascade');
+            $table->integer('caller_id')->unsigned()->index();
+            $table->foreign('caller_id')->references('id')->on('users')->onDelete('cascade');
+            $table->enum('type',['deposit','harvest']);
+            $table->double('amount');
+            $table->enum('status',['waiting','accept','reject']);
             $table->timestamp('deleted_at')->nullable();
+
 
             $table->timestamps();
         });
@@ -34,6 +36,6 @@ class CreateUserPaysTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_pays');
+        Schema::dropIfExists('user_wallets');
     }
 }

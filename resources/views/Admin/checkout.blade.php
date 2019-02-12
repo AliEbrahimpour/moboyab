@@ -52,7 +52,7 @@
 
     .widget { margin-bottom: 30px; background-color: #e9ebef; padding: 50px; border-radius: 6px; }
     .widget:last-child { border-bottom: 0px; }
-    .widget-title { color: #094bde; font-size: 16px; font-weight: 700; text-transform: uppercase; margin-bottom: 25px; letter-spacing: 1px; display: table; line-height: 1; }
+    .widget-title { color: #094bde; font-size: 16px; font-weight: 700; text-transform: uppercase; margin-bottom: 25px; display: table; line-height: 1; }
 
     .btn {  sans-serif; font-size: 16px; text-transform: capitalize; font-weight: 700; padding: 12px 36px; border-radius: 4px; line-height: 2; letter-spacing: 0px; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s; word-wrap: break-word; white-space: normal !important; }
     .btn-default { background-color: #0943c6; color: #fff; border: 1px solid #0943c6; }
