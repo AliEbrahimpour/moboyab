@@ -64,7 +64,7 @@
                     @include('layouts.errors')
                     <fieldset class="forms_fieldset">
                         <div class="forms_field">
-                            <input name="name"  type="text" placeholder="نام" class="forms_field-input" required />
+                            <input name="name"  type="text" placeholder="نام" class="forms_field-input" />
                         </div>
                         <div class="forms_field">
                             <input name="email" type="email" placeholder="ایمیل" class="forms_field-input" required />

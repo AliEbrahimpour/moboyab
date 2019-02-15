@@ -27,6 +27,15 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/home';
 
+    public function handle()
+    {
+        if(auth()->check()) {
+            if(auth()->user()->isAdmin())
+                $this->redirectTo = '/admin/panel';
+        }
+        $this->redirectTo = '/user/panel';
+    }
+
     /**
      * Create a new controller instance.
      *

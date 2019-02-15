@@ -180,7 +180,7 @@ return [
          */
         Unisharp\Ckeditor\ServiceProvider::class,
 //        Kordy\Ticketit\TicketitServiceProvider::class,
-
+        Mpociot\LaravelTestFactoryHelper\TestFactoryHelperServiceProvider::class,
 
     ],
 
