@@ -18,223 +18,35 @@
                                         <table class="table table-hover table-striped table-align-middle mb-0">
                                             <thead>
                                             <tr>
-                                                <th>موضوع</th>
-                                                <th>وضعیت</th>
-                                                <th>توضیحات</th>
+                                                <th width="300px" >موضوع</th>
+                                                <th >وضعیت</th>
+                                                <th >توضیحات</th>
                                             </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach($actions as $action)
+                                            <tr>
+                                                <td >
+                                                    {{$action->name}}
+                                                </td>
+                                                <td >
+                                                    <label class="switch switch-sm switch-3d switch-primary">
+                                                        <input name="actions[]" type="checkbox"
+                                                               value="{{$action->id}}" class="switch-input"
 
-                                            <tr>
-                                                <td>
-                                                    رمز نگاری فیلم ها
-                                                </td>
-                                                <td>
-                                                    <label class="switch switch-sm switch-3d switch-primary">
-                                                        <input name="ramz_film" type="checkbox"
-                                                               value="no" class="switch-input" unchecked="">
+                                                                @if(in_array    ($event ,$action->id ) )
+                                                                    checked
+                                                                @endif
+                                                        >
                                                         <span class="switch-label"></span>
                                                         <span class="switch-handle"></span>
                                                     </label>
                                                 </td>
                                                 <td>
-                                                    لورم
-                                                    <code>ایپسون</code>
+                                                    {{$action->comment}}
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>
-                                                    رمز نگاری تصاویر
-                                                </td>
-                                                <td>
-                                                    <label class="switch switch-sm switch-3d switch-primary">
-                                                        <input type="checkbox" class="switch-input" unchecked="">
-                                                        <span class="switch-label"></span>
-                                                        <span class="switch-handle"></span>
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    لورم
-                                                    <code>ایپسون</code>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    حذف کلیه فیلم ها
-                                                </td>
-                                                <td>
-                                                    <label class="switch switch-sm switch-3d switch-primary">
-                                                        <input type="checkbox" class="switch-input" unchecked="">
-                                                        <span class="switch-label"></span>
-                                                        <span class="switch-handle"></span>
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    لورم
-                                                    <code>ایپسون</code>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    حذف کلیه تصاویر
-                                                </td>
-                                                <td>
-                                                    <label class="switch switch-sm switch-3d switch-primary">
-                                                        <input type="checkbox" class="switch-input" unchecked="">
-                                                        <span class="switch-label"></span>
-                                                        <span class="switch-handle"></span>
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    لورم
-                                                    <code>ایپسون</code>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    قفل نرم افزارها
-                                                </td>
-                                                <td>
-                                                    <label class="switch switch-sm switch-3d switch-primary">
-                                                        <input type="checkbox" class="switch-input" unchecked="">
-                                                        <span class="switch-label"></span>
-                                                        <span class="switch-handle"></span>
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    لورم
-                                                    <code>ایپسون</code>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    حذف حساب های کاربری
-                                                </td>
-                                                <td>
-                                                    <label class="switch switch-sm switch-3d switch-primary">
-                                                        <input type="checkbox" class="switch-input" unchecked="">
-                                                        <span class="switch-label"></span>
-                                                        <span class="switch-handle"></span>
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    لورم
-                                                    <code>ایپسون</code>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    اطلاع از پیام ها
-                                                </td>
-                                                <td>
-                                                    <label class="switch switch-sm switch-3d switch-primary">
-                                                        <input type="checkbox" class="switch-input" unchecked="">
-                                                        <span class="switch-label"></span>
-                                                        <span class="switch-handle"></span>
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    لورم
-                                                    <code>ایپسون</code>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    اطلاع از تماس ها
-                                                </td>
-                                                <td>
-                                                    <label class="switch switch-sm switch-3d switch-primary">
-                                                        <input type="checkbox" class="switch-input" unchecked="">
-                                                        <span class="switch-label"></span>
-                                                        <span class="switch-handle"></span>
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    لورم
-                                                    <code>ایپسون</code>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    حذف مخاطبین
-                                                </td>
-                                                <td>
-                                                    <label class="switch switch-sm switch-3d switch-primary">
-                                                        <input type="checkbox" class="switch-input" unchecked="">
-                                                        <span class="switch-label"></span>
-                                                        <span class="switch-handle"></span>
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    لورم
-                                                    <code>ایپسون</code>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    حذف کامل پیامها
-                                                </td>
-                                                <td>
-                                                    <label class="switch switch-sm switch-3d switch-primary">
-                                                        <input type="checkbox" class="switch-input" unchecked="">
-                                                        <span class="switch-label"></span>
-                                                        <span class="switch-handle"></span>
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    لورم
-                                                    <code>ایپسون</code>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    پشتیبان گیری از مخاطبین و پیام
-                                                </td>
-                                                <td>
-                                                    <label class="switch switch-sm switch-3d switch-primary">
-                                                        <input type="checkbox" class="switch-input" unchecked="">
-                                                        <span class="switch-label"></span>
-                                                        <span class="switch-handle"></span>
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    لورم
-                                                    <code>ایپسون</code>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    تصویر سارق
-                                                </td>
-                                                <td>
-                                                    <label class="switch switch-sm switch-3d switch-primary">
-                                                        <input type="checkbox" class="switch-input" unchecked="">
-                                                        <span class="switch-label"></span>
-                                                        <span class="switch-handle"></span>
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    لورم
-                                                    <code>ایپسون</code>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    توقف ردیابی
-                                                </td>
-                                                <td>
-                                                    <label class="switch switch-sm switch-3d switch-primary">
-                                                        <input type="checkbox" class="switch-input" unchecked="">
-                                                        <span class="switch-label"></span>
-                                                        <span class="switch-handle"></span>
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    لورم
-                                                    <code>ایپسون</code>
-                                                </td>
-                                            </tr>
-
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
