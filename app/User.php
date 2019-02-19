@@ -33,4 +33,9 @@ class User extends Authenticatable
     {
         return $this->role == 'admin' ? true : false;
     }
+
+    public function user_wallet(){
+        return $this->belongsTo(UserWallet::class);
+    }
+
 }

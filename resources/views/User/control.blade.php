@@ -33,8 +33,7 @@
                                                     <label class="switch switch-sm switch-3d switch-primary">
                                                         <input name="actions[]" type="checkbox"
                                                                value="{{$action->id}}" class="switch-input"
-
-                                                                @if(in_array    ($event ,$action->id ) )
+                                                                @if(in_array($action->id,$event ) )
                                                                     checked
                                                                 @endif
                                                         >

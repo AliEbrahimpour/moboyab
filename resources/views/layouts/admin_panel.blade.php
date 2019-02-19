@@ -152,8 +152,8 @@
 <script src="<?= url('js/bootstrap.min.js') ?>"></script>
 <script src="<?= url('js/panel/pace.js') ?>"></script>
 <script src="<?= url('js/panel/app.js') ?>"></script>
-<script src="<?= url('js/Chart.min.js') ?>"></script>
 <script src="<?= url('js/panel/main.js') ?>"></script>
+<script src="<?= url('js/Chart.min.js') ?>"></script>
 
 @yield('script')
 

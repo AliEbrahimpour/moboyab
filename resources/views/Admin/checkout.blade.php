@@ -69,40 +69,51 @@
             <div class="col-lg-8 col-md-8 col-sm-7 col-xs-12">
                 <div class="box">
                     <h3 class="box-title">لیست تسویه های ثبت شده</h3>
+                    @foreach($waiting as $w)
                     <div class="plan-selection">
                         <div class="plan-data">
-                            <input id="question1" name="question" type="radio" class="with-font" value="sel" />
-                            <label for="question1">کاربر یک</label>
-                            <p class="plan-text">
-                              وضعیت : پرداخت شده</p>
-                            <span class="plan-price">29  هزار تومان</span>
+                            {{--<input id="question1" name="question" type="radio" class="with-font" value="sel" />--}}
+                            <h3 for="question1">نام کاربر :{{$w->user['firstname']}}</h3>
+                            <h5 class="plan-text">
+                                وضعیت کاربر :{{$w->user['account_status']}} </h5>
+                            <span class="plan-price">درخواست پرداخت :{{$w->amount}} تومان</span>
                         </div>
+                        <br>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal">
+                            مشاهده جزییات
+                        </button>
                     </div>
-                    <div class="plan-selection">
-                        <div class="plan-data">
-                            <input id="question1" name="question" type="radio" class="with-font" value="sel" />
-                            <label for="question1">کاربر دو</label>
-                            <p class="plan-text">
-                                وضعیت : در حال بررسی</p>
-                            <span class="plan-price">29  هزار تومان</span>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">درخواست پرداخت</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        ...
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-danger"
+                                                data-dismiss="modal">رد درخواست</button>
+                                        <button type="button" class="btn btn-outline-success">پرداخت</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="plan-selection">
-                        <div class="plan-data">
-                            <input id="question1" name="question" type="radio" class="with-font" value="sel" />
-                            <label for="question1">کاربر سه</label>
-                            <p class="plan-text">
-                               وضعیت: رد شده</p>
-                            <span class="plan-price">29  هزار تومان</span>
-                        </div>
-                    </div>
-                    <a href="#" class="btn btn-primary btn-lg mb30">مشاهده جزییات</a>
+                    @endforeach
                 </div>
 
-                <div class="box">
-                    <h3 class="box-title">نمودار وضعیت کلی سیستم</h3>
-                </div>
+                {{--<div class="box">--}}
+                    {{--<h3 class="box-title">نمودار وضعیت کلی سیستم</h3>--}}
+                {{--</div>--}}
             </div>
+
             <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
 
                 <div class="widget">
