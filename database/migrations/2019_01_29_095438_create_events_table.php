@@ -24,7 +24,7 @@ class CreateEventsTable extends Migration
 //            $table->string('status_number')->default(0);
 //            $table->string('delivery_status')->default(0);
 //            $table->string('delivery_state_id')->default(0);
-            $table->enum('status',['not_send','send','deliver','finish','failed'])->nullable();
+            $table->enum('status',['not_send','send','deliver','finish','failed'])->default('send');
             $table->timestamp('deleted_at')->nullable();
             $table->boolean('location_flag')->nullable();
             $table->timestamps();

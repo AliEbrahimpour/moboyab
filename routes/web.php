@@ -33,11 +33,14 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin' ,'middleware' => ['aut
     Route::get('panel/activety', 'AdminController@activety');
     Route::post('panel/activety', 'AdminController@getactivety');
 
+    Route::get('panel/control', 'AdminController@control');
+
+
     Route::get('panel/blog', 'AdminController@blog');
     Route::post('panel/blog', 'AdminController@setblog')->name('blog.store');
 
-//    Route::get('panel/tickets-admin', 'AdminController@ticket');
-//    Route::post('panel/ticket', 'AdminController@setticket');
+    Route::get('panel/ticket', 'AdminController@ticket');
+    Route::post('panel/ticket', 'AdminController@setticket');
 
     Route::get('panel/gallery', 'AdminController@gallery');
     Route::post('panel/gallery', 'AdminController@setgallery');
@@ -47,16 +50,17 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin' ,'middleware' => ['aut
 Route::group(['namespace' => 'User', 'prefix' => 'user','middleware' => ['auth:web'] ], function () {
     Route::get('panel', 'UserController@index');
 
-    Route::get('panel/control', 'UserController@control');
-    Route::post('panel/control', 'UserController@setevent');
+    Route::resource('panel/control', 'EventController');
 
-    Route::get('panel/income', 'UserController@income');
-    Route::post('panel/income', 'UserController@setincome');
+    Route::resource('panel/income', 'IncomeController');
 
-    Route::get('panel/active', 'UserController@active');
-    Route::post('panel/active', 'UserController@setactive');
+    Route::get('panel/active', 'ActivityController@active');
 
-//    Route::get('panel/tickets', 'UserController@ticket');
+    Route::resource('panel/ticket', 'TicketController');
 //    Route::post('panel/ticket', 'UserController@setticket');
 
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

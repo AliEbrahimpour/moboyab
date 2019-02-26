@@ -29,4 +29,8 @@ class UserWallet extends Model
 //        return $income->whereStatus('waiting')->whereType('deposit')->sum('amount');
     }
 
+    public function countable($first,$secend){
+        return $this->coller_id->count();
+    }
+
 }

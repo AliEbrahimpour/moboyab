@@ -64,7 +64,13 @@ $factory->define(App\Blog::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->word,
         'description' => $faker->word,
+        'body' => $faker->word,
+        'images_one' => $faker->word,
+        'images_two' => $faker->word,
+        'images_three' => $faker->word,
         'news_status' => $faker->randomElement(['waiting' ,'published', 'archived']),
+        'user_id' => factory(App\User::class)->create()->id,
+
     ];
 });
 
@@ -120,12 +126,7 @@ $factory->define(App\Location::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Picture::class, function (Faker\Generator $faker) {
-    return [
-        'image_src' => $faker->word,
-        'blog_id' => factory(App\Blog::class)->create()->id,
-    ];
-});
+
 
 $factory->define(App\RoberFace::class, function (Faker\Generator $faker) {
     return [
@@ -173,6 +174,16 @@ $factory->define(App\UserWallet::class, function (Faker\Generator $faker) {
         'amount' => $faker->randomFloat(),
         'status' => $faker->randomElement(['waiting' ,'accept', 'reject']),
         'deleted_at' => $faker->dateTimeBetween(),
+    ];
+});
+
+
+$factory->define(App\Ticket::class, function (Faker\Generator $faker) {
+    return [
+        'user_id' => factory(App\User::class)->create()->id,
+        'title'=>$faker->title(),
+        'priority' => $faker->word,
+        'message' => $faker->text,
     ];
 });
 

@@ -125,6 +125,9 @@
                     <a class="nav-link " href="/admin/panel/activety"><i class="icon-puzzle"></i>گزارش فعالیت ها</a>
                 </li>
                 <li class="nav-item nav-dropdown">
+                    <a class="nav-link " href="/admin/panel/control"><i class="icon-puzzle"></i>کنترل از راه دور</a>
+                </li>
+                <li class="nav-item nav-dropdown">
                     <a class="nav-link " href="/admin/panel/blog"><i class="icon-puzzle"></i>مدیریت محتوا</a>
                 </li>
                 <li class="nav-item nav-dropdown">

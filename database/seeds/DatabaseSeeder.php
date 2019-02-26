@@ -25,7 +25,6 @@ class DatabaseSeeder extends Seeder
         $User = factory(App\Iban::class, 10)->create();
         $User = factory(App\Invite::class, 10)->create();
         $User = factory(App\Location::class, 10)->create();
-        $User = factory(App\Picture::class, 10)->create();
         $User = factory(App\RoberFace::class, 10)->create();
         $User = factory(App\User::class, 10)->create();
         $User = factory(App\UserPay::class, 10)->create();

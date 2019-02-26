@@ -83,7 +83,7 @@
                                     <td>{{$caller->role}}</td>
                                     <td>{{$caller->created_at}}</td>
                                     <td>{{$caller->email}}</td>
-                                    <td>{{$caller->caller_id}}</td>
+                                    <td>{{\App\User::find($caller->caller_id)->code}}</td>
                                     <td>{{$caller->credit}}</td>
                                     <td>
 
@@ -116,170 +116,52 @@
 
             <div class="col-lg-12">
                 <div class="card">
-                    <div class="card-header">
-                        <i class="fa fa-align-justify"></i> کاربران فعال
+                    <div style="float: left;" class="card-header">
+                        <h4> کاربران فعال</h4>
                     </div>
                     <div class="card-body">
                         <table class="table table-bordered table-striped table-sm">
                             <thead>
                             <tr>
                                 <th>نام کاربری</th>
+                                <th>نقش</th>
                                 <th>تعداد عضویت</th>
                                 <th>کد معرف</th>
-                                <th>وضعیت</th>
+                                <th>وضعیت کاربر</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>Vishnu Serghei</td>
-                                <td>20</td>
-                                <td>Member</td>
-                                <td>
-                                    <span class="badge badge-success">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Zbyněk Phoibos</td>
-                                <td>30</td>
-                                <td>Staff</td>
-                                <td>
-                                    <span class="badge badge-danger">Banned</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Einar Randall</td>
-                                <td>15</td>
-                                <td>Admin</td>
-                                <td>
-                                    <span class="badge badge-default">Inactive</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Félix Troels</td>
-                                <td>40</td>
-                                <td>Member</td>
-                                <td>
-                                    <span class="badge badge-warning">Pending</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Aulus Agmundr</td>
-                                <td>50</td>
-                                <td>Staff</td>
-                                <td>
-                                    <span class="badge badge-success">Active</span>
-                                </td>
-                            </tr>
+                            @foreach($bests as $best)
+                                @php $call = \App\User::find($best->caller_id)@endphp
+                                <tr>
+                                    <td>{{$call->firstname.' '
+                                    .$call->lastname}}</td>
+                                    <td>{{$call->role}}</td>
+                                    <td>{{$best->user_count}}</td>
+                                    <td>{{$call->code}}</td>
+
+                                    <td>
+                                        @if($call->account_status == 'active')
+                                            <span class="badge badge-success">Active</span>
+
+                                        @elseif($call->account_status == 'block')
+                                            <span class="badge badge-danger">Block</span>
+
+                                        @elseif($call->account_status == 'deactive')
+                                            <span class="badge badge-warning">DeActive</span>
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
-                        <nav>
-                            <ul class="pagination">
-                                <li class="page-item"><a class="page-link" href="#">Prev</a>
-                                </li>
-                                <li class="page-item active">
-                                    <a class="page-link" href="#">1</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">2</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">3</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">4</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">Next</a>
-                                </li>
-                            </ul>
-                        </nav>
                     </div>
                 </div>
             </div>
             <!--/.col-->
 
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header">
-                        <i class="fa fa-align-justify"></i>کنترل از راه دور
-                    </div>
-                    <div class="card-body">
-                        <table class="table table-bordered table-striped table-sm">
-                            <thead>
-                            <tr>
-                                <th>نام دستور</th>
-                                <th>تعداد استفاده</th>
-                                <th>تعداد موفق</th>
-                                <th>تعداد ناموفق</th>
-                                <th>جزییات</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>Vishnu Serghei</td>
-                                <td>20</td>
-                                <td>20</td>
-                                <td>20</td>
-                                <td>
-                                    <button class="btn btn-block">مشاهده جزییات</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Zbyněk Phoibos</td>
-                                <td>30</td>
-                                <td>30</td>
-                                <td>30</td>
-                                <td>
-                                    <button class="btn btn-block">مشاهده جزییات</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Einar Randall</td>
-                                <td>15</td>
-                                <td>15</td>
-                                <td>15</td>
-                                <td>
-                                    <button class="btn btn-block">مشاهده جزییات</button>
 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Félix Troels</td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>
-                                    <button class="btn btn-block">مشاهده جزییات</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Aulus Agmundr</td>
-                                <td>50</td>
-                                <td>50</td>
-                                <td>50</td>
-                                <td>
-                                    <button class="btn btn-block">مشاهده جزییات</button>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <nav>
-                            <ul class="pagination">
-                                <li class="page-item"><a class="page-link" href="#">Prev</a>
-                                </li>
-                                <li class="page-item active">
-                                    <a class="page-link" href="#">1</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">2</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">3</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">4</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">Next</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            <!--/.col-->
+
 
 
         </div>

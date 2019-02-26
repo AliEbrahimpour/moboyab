@@ -17,8 +17,8 @@ class CreateLocationsTable extends Migration
             $table->increments('id');
             $table->integer('event_id')->unsigned()->index();
             $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
-            $table->string('latitude');
-            $table->string('longitude');
+            $table->double('latitude');
+            $table->double('longitude');
             $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
