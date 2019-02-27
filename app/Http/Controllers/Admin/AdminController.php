@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Blog;
+use App\RoberFace;
 use App\Ticket;
 use App\User;
 use App\UserWallet;
@@ -68,7 +69,8 @@ class AdminController extends Controller
 //    }
 
     public function gallery(){
-        return view('Admin.gallery_admin');
+        $rfs = RoberFace::paginate(6);
+        return view('Admin.gallery_admin',compact('rfs'));
     }
 
 }
